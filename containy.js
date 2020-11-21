@@ -25,13 +25,14 @@ class card {
         this.div.style.margin = '10%'
         this.div.style.height = 'fit-content'
         this.div.style.width = 'fit-content'
-
+        this.div.style.overflow = 'hidden'
+        this.div.style.borderRadius = '10px'
         // Setup front view
         this._setupFrontView(imgUrl,name,title)
         // Setup back view
         this._setupBackView(imgUrl, name,title, description)
         // Only append front since that is the default view
-        this.div.appendChild(this.frontView)
+        // this.div.appendChild(this.frontView)
         this.div.appendChild(this.backView)
     } 
 
@@ -67,7 +68,7 @@ class card {
         this.frontView.style.backgroundSize = 'cover'
         this.frontView.style.height = '40vh'
         this.frontView.style.width =  '30vh'
-        this.frontView.style.borderRadius = '10px'
+        // this.frontView.style.borderRadius = '10px'
 
         // Setup name and title
         const frontText = this._getNameandTitleTag(name, title)
@@ -138,6 +139,7 @@ class card {
 
         // Setting up about section
         const descriptionText = document.createElement('p')
+        descriptionText.className = 'descriptionText'
         descriptionText.appendChild(document.createTextNode(description))
         this.aboutSection.appendChild(descriptionText)
         this.aboutSection.className = 'aboutSection'
@@ -191,8 +193,6 @@ class cardsGenerator{
         cardObj.makeCard(imgUrl,name, title, description)
         this.mainDiv.appendChild(cardObj.div)
         this.cards.push(cardObj)
-
-
     }
 
 }
