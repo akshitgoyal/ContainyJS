@@ -17,6 +17,8 @@ class card {
         this.frontView.id = `${id}front`
         this.backView = document.createElement('div')
         this.backView.id = `${id}back`
+        this.aboutSection = document.createElement('div')
+        this.linksSection = document.createElement('div')
     }
     makeCard(imgUrl, name, title, description){
         // Set the main div
@@ -91,14 +93,7 @@ class card {
 
     }
 
-    _setupBackView(imgUrl, name, title, description){
-        // Setup main back view styling   
-        this.backView.style.height = '40vh'
-        this.backView.style.width =  '30vh'
-        this.backView.style.borderRadius = '10px'
-
-        // Back View is divided into two sections
-        // Setting up the first section
+    _setupUpperHalfBackView(imgUrl, name, title){
         const upperHalf = document.createElement('div')
         upperHalf.style.backgroundColor = '#FFD600'
         upperHalf.style.height = '50%'
@@ -118,11 +113,54 @@ class card {
         upperHalf.style.justifyContent = 'center'
         upperHalf.style.flexWrap = 'wrap'
         upperHalf.style.textAlign = 'center'
+        return upperHalf
 
+    }
+
+    _setupLowerHalfBackView(description){
+        const lowerHalf = document.createElement('div')
+        lowerHalf.className = 'lowerHalf'
+        const buttonPanel = document.createElement('div')
+        buttonPanel.className = 'buttonPanel'
+
+        const aboutButton = document.createElement('button')
+        aboutButton.className = 'aboutButton'
+        aboutButton.appendChild(document.createTextNode('About'))
+        // Setting border for about us because that is clicked by default.
+        aboutButton.style.borderTopStyle = 'solid'
+        buttonPanel.appendChild(aboutButton)
+
+
+        const linksButton = document.createElement('button')
+        linksButton.className = 'linksButton'
+        linksButton.appendChild(document.createTextNode('Links'))
+        buttonPanel.appendChild(linksButton)
+
+        // Setting up about section
+        const descriptionText = document.createElement('p')
+        descriptionText.appendChild(document.createTextNode(description))
+        this.aboutSection.appendChild(descriptionText)
+        this.aboutSection.className = 'aboutSection'
+
+        lowerHalf.appendChild(buttonPanel)
+        lowerHalf.appendChild(this.aboutSection)
+        return lowerHalf
+
+    }
+
+    _setupBackView(imgUrl, name, title, description){
+        // Setup main back view styling   
+        this.backView.style.height = '40vh'
+        this.backView.style.width =  '30vh'
+        this.backView.style.borderRadius = '10px'
+
+        // Back View is divided into two sections
+        // Setting up the first section
+        const upperHalf = this._setupUpperHalfBackView(imgUrl, name, title)
 
 
         // Setting up the second section
-        const lowerHalf = document.createElement('div')
+        const lowerHalf = this._setupLowerHalfBackView(description)
 
 
         this.backView.appendChild(upperHalf)
@@ -149,11 +187,6 @@ class cardsGenerator{
     }
 
     addCard(id, imgUrl, name, title, description){
-        // const card = document.createElement('div')
-        // card.id = id
-        // const faceView = document.createElement('div')
-        // this._setupFaceView(faceView, imgUrl, name, title)
-        // this.mainDiv.appendChild(faceView)
         const cardObj = new card(id)
         cardObj.makeCard(imgUrl,name, title, description)
         this.mainDiv.appendChild(cardObj.div)
@@ -161,16 +194,6 @@ class cardsGenerator{
 
 
     }
-
-
-
-    // _setupFaceView(faceView, imgUrl){
-    //     faceView.style.height = '50px';
-    //     faceView.style.backgroundImage = `url('${imgUrl}')`
-    //     faceView.style.backgroundColor = '#FFD600'
-
-    // }
-
 
 }
 

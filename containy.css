@@ -1,0 +1,34 @@
+.lowerHalf {
+	height: 50%;
+	width: 100%;
+}
+
+.buttonPanel {
+	width: 100%;
+	height: 20%;
+}
+
+.aboutButton {
+	background: transparent;
+	cursor: pointer;
+	background-color: white;
+	color: black;
+	width: 25%;
+	height: 100%;
+	border: None;
+}
+
+.linksButton {
+	background: transparent;
+	cursor: pointer;
+	background-color: white;
+	color: black;
+	width: 25%;
+	height: 100%;
+	border: None;
+}
+
+.aboutSection {
+	width: 100%;
+	height: 80%;
+}
