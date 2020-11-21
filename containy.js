@@ -33,6 +33,21 @@ class card {
         this.div.appendChild(this.backView)
     } 
 
+    _getNameandTitleTag(name, title){
+        const profileText = document.createElement('div')
+        const nameText = document.createElement('p')
+        nameText.style.fontWeight = 'bolder'
+        nameText.style.marginBottom = '8px'
+        nameText.appendChild(document.createTextNode(name))
+        profileText.appendChild(nameText)
+
+        // Setup title
+        const titleText = document.createTextNode(title)
+        profileText.appendChild(titleText)
+        return profileText
+
+    }
+
 
     _setupFrontView(imgUrl, name, title){
         // Setup front view image and background
@@ -42,18 +57,9 @@ class card {
         this.frontView.style.height = '40vh'
         this.frontView.style.width =  '30vh'
         this.frontView.style.borderRadius = '10px'
-        // Setup name 
-        const frontText = document.createElement('div')
-        const nameText = document.createElement('p')
-        nameText.style.fontWeight = 'bolder'
-        nameText.style.marginBottom = '8px'
-        nameText.appendChild(document.createTextNode(name))
-        frontText.appendChild(nameText)
 
-        // Setup title
-        const titleText = document.createTextNode(title)
-        frontText.appendChild(titleText)
-
+        // Setup name and title
+        const frontText = this._getNameandTitleTag(name, title)
         // Adding to the front view
         frontText.style.paddingTop = '90%'
         frontText.style.paddingLeft = '5%'
@@ -75,7 +81,17 @@ class card {
         upperHalf.style.backgroundColor = '#FFD600'
         upperHalf.style.height = '50%'
         upperHalf.style.width = '100%'
-        
+
+        // Create image avatar 
+        const profileImg = document.createElement('img')
+        profileImg.src = imgUrl
+        profileImg.style.width = '25%'
+        profileImg.style.height = '50%'
+        profileImg.style.borderRadius = '50%'
+        upperHalf.appendChild(profileImg)
+
+        // Create the Name and title 
+
 
 
 
