@@ -37,16 +37,25 @@ class card {
         const profileText = document.createElement('div')
         const nameText = document.createElement('p')
         nameText.style.fontWeight = 'bolder'
-        nameText.style.marginBottom = '8px'
+        nameText.style.marginBottom = '1px'
         nameText.appendChild(document.createTextNode(name))
         profileText.appendChild(nameText)
 
         // Setup title
-        const titleText = document.createTextNode(title)
+        const titleText = document.createElement('p')
+        titleText.style.marginTop = '1px'
+        titleText.appendChild(document.createTextNode(title))
+
+
         profileText.appendChild(titleText)
+        profileText.style.display = 'flex'
+        profileText.style.justifyContent = 'center'
+        profileText.style.flexDirection = 'column'
         return profileText
 
     }
+
+
 
 
     _setupFrontView(imgUrl, name, title){
@@ -69,6 +78,19 @@ class card {
         this.frontView.appendChild(frontText)
     }
 
+    _getAvatarPhotoTag(imgUrl){
+        const profileImg = document.createElement('img')
+        profileImg.src = imgUrl
+        profileImg.style.width = '25%'
+        profileImg.style.height = '50%'
+        profileImg.style.borderRadius = '50%'
+        profileImg.style.margin = '15%'
+        profileImg.style.marginRight = '2%'
+        profileImg.style.marginLeft = '5%'
+        return profileImg
+
+    }
+
     _setupBackView(imgUrl, name, title, description){
         // Setup main back view styling   
         this.backView.style.height = '40vh'
@@ -83,15 +105,19 @@ class card {
         upperHalf.style.width = '100%'
 
         // Create image avatar 
-        const profileImg = document.createElement('img')
-        profileImg.src = imgUrl
-        profileImg.style.width = '25%'
-        profileImg.style.height = '50%'
-        profileImg.style.borderRadius = '50%'
+        const profileImg = this._getAvatarPhotoTag(imgUrl)
         upperHalf.appendChild(profileImg)
 
-        // Create the Name and title 
+        // Create the Name and title
+        const profileInfo = this._getNameandTitleTag(name, title)
+        upperHalf.appendChild(profileInfo)
+        
 
+        // Setting up alignment of upper Half
+        upperHalf.style.display = 'flex'
+        upperHalf.style.justifyContent = 'center'
+        upperHalf.style.flexWrap = 'wrap'
+        upperHalf.style.textAlign = 'center'
 
 
 
