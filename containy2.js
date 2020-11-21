@@ -13,6 +13,7 @@ class card {
         this.div.style.height = '40vh'
         this.div.style.width = '30vh'
 
+
         // Initialise front view
         this.frontView = document.createElement('div')
         this.frontView.id = `${id}front`
@@ -28,18 +29,18 @@ class card {
     _getNameandTitleTag(name, title){
         const profileText = document.createElement('div')
         const nameText = document.createElement('p')
-        nameText.className = 'nameText'
+        nameText.style.fontWeight = 'bolder'
+        nameText.style.marginBottom = '1px'
         nameText.appendChild(document.createTextNode(name))
         profileText.appendChild(nameText)
 
         // Setup title
         const titleText = document.createElement('p')
-        titleText.className = 'titleText'
+        titleText.style.marginTop = '1px'
         titleText.appendChild(document.createTextNode(title))
 
 
         profileText.appendChild(titleText)
-
         profileText.style.display = 'flex'
         profileText.style.justifyContent = 'center'
         profileText.style.flexDirection = 'column'
@@ -59,37 +60,47 @@ class card {
         // Setup name and title
         const frontText = this._getNameandTitleTag(name, title)
         // Adding to the front view
-        frontText.className = 'frontText'
-
+        frontText.style.paddingTop = '90%'
+        frontText.style.paddingLeft = '5%'
+        // cardname.style.bottom = '20%'
+        // frontText.appendChild(cardname)
+        // frontText.appendChild(document.createTextNode(title).style.bottom='10%')
         this.frontView.appendChild(frontText)
     }
 
     _getAvatarPhotoTag(imgUrl){
         const profileImg = document.createElement('img')
-        profileImg.className = 'profileImg'
         profileImg.src = imgUrl
-
+        profileImg.style.width = '25%'
+        profileImg.style.height = '50%'
+        profileImg.style.borderRadius = '50%'
+        profileImg.style.margin = '15%'
+        profileImg.style.marginRight = '2%'
+        profileImg.style.marginLeft = '5%'
         return profileImg
 
     }
 
     _setupUpperHalfBackView(imgUrl, name, title){
         const upperHalf = document.createElement('div')
-        upperHalf.className = 'upperHalf'
-        upperHalf.style.backgroundColor = this.themeColor
+        upperHalf.style.backgroundColor = '#FFD600'
+        upperHalf.style.height = '50%'
+        upperHalf.style.width = '100%'
 
-        if(imgUrl != ''){
         // Create image avatar 
         const profileImg = this._getAvatarPhotoTag(imgUrl)
         upperHalf.appendChild(profileImg)
-        }
-
 
         // Create the Name and title
         const profileInfo = this._getNameandTitleTag(name, title)
-        profileInfo.style.fontSize = '1em'
         upperHalf.appendChild(profileInfo)
         
+
+        // Setting up alignment of upper Half
+        upperHalf.style.display = 'flex'
+        upperHalf.style.justifyContent = 'center'
+        upperHalf.style.flexWrap = 'wrap'
+        upperHalf.style.textAlign = 'center'
         return upperHalf
 
     }
@@ -127,9 +138,10 @@ class card {
     }
 
     _setupBackView(imgUrl, name, title, description){
-        // // Setup main back view styling   
-        this.backView.style.height = '100%'
-        this.backView.style.width =  '100%'
+        // Setup main back view styling   
+        this.backView.style.height = '40vh'
+        this.backView.style.width =  '30vh'
+        this.backView.style.borderRadius = '10px'
 
         // Back View is divided into two sections
         // Setting up the first section
@@ -155,7 +167,7 @@ class card {
         this._setupBackView(imgUrl, name,title, description)
 
         // Only append front since that is the default view
-        // this.div.appendChild(this.frontView)
+        this.div.appendChild(this.frontView)
         this.div.appendChild(this.backView)
     } 
 
