@@ -34,8 +34,9 @@ class card {
         this._setupBackView(imgUrl, name,title, description)
 
         // Only append front since that is the default view
-        // this.div.appendChild(this.frontView)
-        this.div.appendChild(this.backView)
+        this.div.onclick = () => this._switchMainView()
+        this.div.appendChild(this.frontView)
+        // this.div.appendChild(this.backView)
     } 
 
 
@@ -76,6 +77,7 @@ class card {
         frontText.className = 'frontText'
 
         this.frontView.appendChild(frontText)
+        
     }
 
     _getAvatarPhotoTag(imgUrl){
@@ -116,7 +118,10 @@ class card {
 
         const aboutButton = document.createElement('button')
         aboutButton.className = 'aboutButton'
-        aboutButton.onclick = () => this._switchDescription('aboutButton')
+        aboutButton.onclick = (e) => {
+            e.stopPropagation();
+            this._switchDescription('aboutButton')
+        }
 
         aboutButton.appendChild(document.createTextNode('About'))
         // Setting border for about us because that is clicked by default.
@@ -127,7 +132,10 @@ class card {
         const linksButton = document.createElement('button')
         linksButton.className = 'linksButton'
         linksButton.appendChild(document.createTextNode('Links'))
-        linksButton.onclick = ()=> this._switchDescription('linksButton')
+        linksButton.onclick = (e)=> {
+            e.stopPropagation();
+            this._switchDescription('linksButton')
+        }
         buttonPanel.appendChild(linksButton)
 
         // Setting up about section
@@ -180,6 +188,19 @@ class card {
         }
     }
 
+    _switchMainView(){
+        if(this.div.firstChild === this.frontView)
+        {
+            log("front clicked")
+            this.div.replaceChild(this.backView, this.frontView)
+        }
+        else if(this.div.firstChild === this.backView){
+            log("back clicked")
+            this.div.replaceChild(this.frontView, this.backView)
+        }
+    }
+
+
 
 
 
@@ -195,6 +216,11 @@ class cardsGenerator{
         this.mainDiv = document.getElementById(selector);
         this.mainDiv.style.height = 'fit-content'
         this.mainDiv.style.width = 'fit-content'
+        this.mainDiv.style.display = 'flex'
+        // this.mainDiv.style.overflow = 'visible'
+        this.mainDiv.style.justifyContent = 'center'
+        this.mainDiv.style.backgroundColor = 'grey'
+        this.mainDiv.style.flexWrap = 'wrap'
         this.cards = []
     }
 
