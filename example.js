@@ -15,3 +15,4 @@ cards.addCard('card3', './profilepic.jpeg', "Laura", "Pexel Model", "An awesone 
 cards.addCard('card3', './profilepic.jpeg', "Laura", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
 cards.addCard('card3', './profilepic.jpeg', "Laura", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
 cards.addCard('card3', './profilepic.jpeg', "Laura", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
+cards.addLink('card1', 'http://www.google.com', 'Google')

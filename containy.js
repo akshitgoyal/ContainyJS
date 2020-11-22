@@ -15,12 +15,11 @@ class card {
 
         // Initialise front view
         this.frontView = document.createElement('div')
-        this.frontView.id = `${id}front`
         this.backView = document.createElement('div')
-        this.backView.id = `${id}back`
         this.aboutSection = document.createElement('div')
         this.linksSection = document.createElement('div')
         this.themeColor = '#FFD600'
+
 
     }
     makeCard(imgUrl, name, title, description){
@@ -37,6 +36,12 @@ class card {
         this.div.onclick = () => this._switchMainView()
         this.div.appendChild(this.frontView)
         // this.div.appendChild(this.backView)
+    }
+    addLink(linkUrl, linkText, iconImg){
+        const linkButton = document.createElement('button')
+        linkButton.appendChild(document.createTextNode(linkText))
+        linkButton.onclick = () => window.location = linkUrl
+        this.linksSection.appendChild(linkButton)
     } 
 
 
@@ -207,10 +212,6 @@ class card {
         }
     }
 
-
-
-
-
 }
 
 
@@ -221,14 +222,18 @@ class card {
 class cardsGenerator{
     constructor(selector){
         this.mainDiv = document.getElementById(selector);
-        this.mainDiv.style.height = 'fit-content'
-        this.mainDiv.style.width = 'fit-content'
-        this.mainDiv.style.display = 'flex'
-        // this.mainDiv.style.overflow = 'visible'
-        this.mainDiv.style.justifyContent = 'center'
+        this.mainDiv.className = 'containerMainDiv'
+        this.expanded = document.createElement('div');
+        // this.collapsed = document
+        // this.mainDiv.style.height = 'fit-content'
+        // this.mainDiv.style.width = 'fit-content'
+        // this.mainDiv.style.display = 'flex'
+        // // this.mainDiv.style.overflow = 'visible'
+        // this.mainDiv.style.justifyContent = 'center'
         this.mainDiv.style.backgroundColor = 'grey'
-        this.mainDiv.style.flexWrap = 'wrap'
+        // this.mainDiv.style.flexWrap = 'wrap'
         this.cards = []
+        this.collapse = true
     }
 
     addCard(id, imgUrl, name, title, description){
@@ -237,6 +242,17 @@ class cardsGenerator{
         this.mainDiv.appendChild(cardObj.div)
         this.cards.push(cardObj)
     }
+    addLink(id, linkUrl, linkText, iconImg){
+        const card = this.cards.filter((currCard) => currCard.div.id === id)
+        log(this.cards)
+        log(card)
+        card[0].addLink(linkUrl, linkText, iconImg)
+
+    }
+    // turnOnCollapse{
+        
+
+    // }
 
 }
 
