@@ -23,6 +23,20 @@ class card {
         this.themeColor = '#FFD600'
 
     }
+    makeCard(imgUrl, name, title, description){
+        // Set the main div
+        this.div.className = 'cardMainDiv'
+
+        // Setup front view
+        this._setupFrontView(imgUrl,name,title)
+
+        // Setup back view
+        this._setupBackView(imgUrl, name,title, description)
+
+        // Only append front since that is the default view
+        // this.div.appendChild(this.frontView)
+        this.div.appendChild(this.backView)
+    } 
 
 
     _getNameandTitleTag(name, title){
@@ -102,6 +116,8 @@ class card {
 
         const aboutButton = document.createElement('button')
         aboutButton.className = 'aboutButton'
+        aboutButton.onclick = () => this._switchDescription('aboutButton')
+
         aboutButton.appendChild(document.createTextNode('About'))
         // Setting border for about us because that is clicked by default.
         aboutButton.style.borderTopStyle = 'solid'
@@ -111,6 +127,7 @@ class card {
         const linksButton = document.createElement('button')
         linksButton.className = 'linksButton'
         linksButton.appendChild(document.createTextNode('Links'))
+        linksButton.onclick = ()=> this._switchDescription('linksButton')
         buttonPanel.appendChild(linksButton)
 
         // Setting up about section
@@ -119,7 +136,8 @@ class card {
         descriptionText.appendChild(document.createTextNode(description))
         this.aboutSection.appendChild(descriptionText)
         this.aboutSection.className = 'aboutSection'
-
+        
+        this.linksSection.className = 'linksSection'
         lowerHalf.appendChild(buttonPanel)
         lowerHalf.appendChild(this.aboutSection)
         return lowerHalf
@@ -144,20 +162,23 @@ class card {
         this.backView.appendChild(lowerHalf)
 
     }
-    makeCard(imgUrl, name, title, description){
-        // Set the main div
-        this.div.className = 'cardMainDiv'
+    _switchDescription(buttonName) {
+        if(buttonName == 'aboutButton'){
+            if(!this.backView.children[1].contains(this.aboutSection)){
+                this.backView.children[1].children[0].firstChild.style.borderTopStyle = 'solid'
+                this.backView.children[1].children[0].lastChild.style.borderTopStyle = 'None'
+                this.backView.children[1].replaceChild( this.aboutSection, this.linksSection)
+            }
 
-        // Setup front view
-        this._setupFrontView(imgUrl,name,title)
-
-        // Setup back view
-        this._setupBackView(imgUrl, name,title, description)
-
-        // Only append front since that is the default view
-        // this.div.appendChild(this.frontView)
-        this.div.appendChild(this.backView)
-    } 
+        }
+        else if(buttonName == 'linksButton'){
+            if(!this.backView.children[1].contains(this.linksSection)){
+                this.backView.children[1].children[0].lastChild.style.borderTopStyle = 'solid'
+                this.backView.children[1].children[0].firstChild.style.borderTopStyle = 'None'
+                this.backView.children[1].replaceChild(this.linksSection, this.aboutSection)
+            }
+        }
+    }
 
 
 
