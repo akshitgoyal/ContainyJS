@@ -189,6 +189,13 @@ class card {
     }
 
     _switchMainView(){
+        if(this.div.classList.contains("active")){
+            this.div.classList.remove("active")
+            log("removed")
+        }
+        else{
+            this.div.classList.add("active")
+        }
         if(this.div.firstChild === this.frontView)
         {
             log("front clicked")
