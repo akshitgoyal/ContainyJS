@@ -1,11 +1,55 @@
 .containerMainDiv {
 	height: fit-content;
 	width: fit-content;
+	/* display: flex;
+	justify-content: center;
+	flex-wrap: wrap; */
+	overflow: hidden;
+	border-radius: 20px;
+	background-color: dimgrey;
+	transition: width 1s, height 1s;
+}
+.expandedCards {
+	height: fit-content;
+	width: fit-content;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	overflow: hidden;
-	border-radius: 20px;
+}
+.collapseButton {
+	height: 100%;
+	width: 10%;
+	background: transparent;
+	cursor: pointer;
+	color: black;
+	border: solid;
+	font-size: 0.9em;
+	padding: 5px;
+	outline: none;
+	position: absolute;
+	right: 5%;
+}
+.closeButtonBar {
+	width: 100%;
+	height: 50px;
+	position: relative;
+	margin: 2%;
+}
+.collapsedContainer {
+	height: fit-content;
+	width: fit-content;
+}
+.collapsedCard {
+	height: 320px;
+	width: 240px;
+	font-weight: bolder;
+	font-size: 2em;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	vertical-align: middle;
+	justify-content: center;
 }
 .cardMainDiv {
 	margin: 2%;
@@ -14,7 +58,7 @@
 	overflow: hidden;
 	border-radius: 10px;
 	position: relative;
-	transition: transform 0.6s;
+	transition: transform 1s;
 	transform-style: preserve-3d;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -112,4 +156,20 @@
 .linksSection {
 	width: 100%;
 	height: 80%;
+}
+.addLinkButton {
+	font-size: 0.7em;
+	width: 100%;
+	height: 20%;
+	background: transparent;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	/* border-bottom-color: rgb(172, 171, 171);
+	border-bottom-width: thin; */
+	border-top-color: rgb(172, 171, 171);
+	border-top-style: solid;
+	border-top-width: thin;
+	outline: none;
+	margin: 0%;
 }

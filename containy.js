@@ -6,19 +6,19 @@ log('Entered containy.js')
 
 
 class card {
-    constructor(id){
+    constructor(id,themeColor){
         // Initialize main card container div
         this.div = document.createElement('div')
         this.div.id = id
-        this.div.style.height = '40vh'
-        this.div.style.width = '30vh'
+        this.div.style.height = '320px'
+        this.div.style.width = '240px'
 
         // Initialise front view
         this.frontView = document.createElement('div')
         this.backView = document.createElement('div')
         this.aboutSection = document.createElement('div')
         this.linksSection = document.createElement('div')
-        this.themeColor = '#FFD600'
+        this.themeColor = themeColor
 
 
     }
@@ -40,8 +40,13 @@ class card {
     addLink(linkUrl, linkText, iconImg){
         const linkButton = document.createElement('button')
         linkButton.appendChild(document.createTextNode(linkText))
-        linkButton.onclick = () => window.location = linkUrl
+        linkButton.onclick = (e) =>{
+            e.stopPropagation();
+            window.open(linkUrl)
+        } 
+        linkButton.className = 'addLinkButton'
         this.linksSection.appendChild(linkButton)
+
     } 
 
 
@@ -196,7 +201,6 @@ class card {
     _switchMainView(){
         if(this.div.classList.contains("active")){
             this.div.classList.remove("active")
-            log("removed")
         }
         else{
             this.div.classList.add("active")
@@ -220,26 +224,30 @@ class card {
 
 
 class cardsGenerator{
-    constructor(selector){
+    constructor(selector, themeColor){
         this.mainDiv = document.getElementById(selector);
         this.mainDiv.className = 'containerMainDiv'
+
+        this.expandedContainer = document.createElement('div');
         this.expanded = document.createElement('div');
-        // this.collapsed = document
-        // this.mainDiv.style.height = 'fit-content'
-        // this.mainDiv.style.width = 'fit-content'
-        // this.mainDiv.style.display = 'flex'
-        // // this.mainDiv.style.overflow = 'visible'
-        // this.mainDiv.style.justifyContent = 'center'
-        this.mainDiv.style.backgroundColor = 'grey'
-        // this.mainDiv.style.flexWrap = 'wrap'
+        this.expanded.className = 'expandedCards'
+        this.collapsed = document.createElement('div');
+        this.collapsed.className = 'collapsedContainer'
+        // this._setupCollapsedContainer()
+        this.expandedContainer.appendChild(this.expanded)
+        this.mainDiv.appendChild(this.expandedContainer)
+        this.themeColor = themeColor;
+        if(themeColor === undefined){
+            this.themeColor = '#FFD600'
+        }
         this.cards = []
-        this.collapse = true
+        this.collapse = false
     }
 
     addCard(id, imgUrl, name, title, description){
-        const cardObj = new card(id)
+        const cardObj = new card(id,this.themeColor)
         cardObj.makeCard(imgUrl,name, title, description)
-        this.mainDiv.appendChild(cardObj.div)
+        this.expanded.appendChild(cardObj.div)
         this.cards.push(cardObj)
     }
     addLink(id, linkUrl, linkText, iconImg){
@@ -249,10 +257,46 @@ class cardsGenerator{
         card[0].addLink(linkUrl, linkText, iconImg)
 
     }
-    // turnOnCollapse{
-        
+    turnOnCollapse(name){
+        this._setupCollapsedContainer(name);
+     }
 
-    // }
+    _setupCollapsedContainer(name){
+        const collapsedCard = document.createElement('div')
+        collapsedCard.className = 'collapsedCard'
+
+        collapsedCard.style.backgroundColor = this.themeColor
+        collapsedCard.onclick = () => this._expandContainer()
+        collapsedCard.appendChild(document.createTextNode(name))
+        this.collapsed.appendChild(collapsedCard)
+        this.mainDiv.replaceChild(this.collapsed, this.expandedContainer)
+
+        // add button on expanded view to close it
+        const closeButtonBar = document.createElement('div')
+        closeButtonBar.className = 'closeButtonBar'
+        // closeButtonBar.style.width = '100%'
+        // closeButtonBar.style.height = '5%'
+        // closeButtonBar.style.position = 'relative'
+        
+        const closeButton = document.createElement('button')
+        closeButton.appendChild(document.createTextNode('Collapse'))
+        closeButton.onclick = (e) => this._collapseContainer()
+        closeButton.className = 'collapseButton'
+        closeButtonBar.appendChild(closeButton)
+        this.expandedContainer.prepend(closeButtonBar)
+        
+        this.collapse = true
+    }
+        
+    _expandContainer(){
+        this.mainDiv.replaceChild(this.expandedContainer, this.collapsed)
+        this.mainDiv.classList.add("expandAnimate")
+    }
+    _collapseContainer(){
+        this.mainDiv.replaceChild(this.collapsed, this.expandedContainer)
+        this.mainDiv.classList.remove("expandAnimate")
+    }
+
 
 }
 
