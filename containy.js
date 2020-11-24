@@ -248,6 +248,7 @@ class cardsGenerator{
         }
         this.cards = []
         this.collapse = false
+        this.containerColor = 'dimgrey'
     }
 
     addCard(id, imgUrl, name, title, description){
@@ -265,7 +266,10 @@ class cardsGenerator{
         this._setupCollapsedContainer(name);
     }
 
-
+    changeContainerBackground(newColor){
+        this.containerColor = newColor
+        this.mainDiv.style.backgroundColor = this.containerColor
+    }
 
 
     changeThemeColorOfCard(id, newColor){
@@ -313,6 +317,7 @@ class cardsGenerator{
         this.mainDiv.replaceChild(this.collapsed, this.expandedContainer)
         this.mainDiv.classList.remove("expandAnimate")
     }
+
 
 
 }
