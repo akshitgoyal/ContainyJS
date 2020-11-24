@@ -47,6 +47,12 @@ class card {
         linkButton.className = 'addLinkButton'
         this.linksSection.appendChild(linkButton)
 
+    }
+    updateThemeColor(newColor){
+        this.themeColor = newColor
+        this.frontView.style.backgroundColor = this.themeColor
+        this.backView.firstChild.style.backgroundColor = this.themeColor
+
     } 
 
 
@@ -251,14 +257,21 @@ class cardsGenerator{
         this.cards.push(cardObj)
     }
     addLink(id, linkUrl, linkText, iconImg){
-        // const card = this.cards.filter((currCard) => currCard.div.id === id)
         const card = this._findRequestedCard(id)
-        log(this.cards)
-        log(card)
         card.addLink(linkUrl, linkText, iconImg)
     }
+
     turnOnCollapse(name){
         this._setupCollapsedContainer(name);
+    }
+
+
+
+
+    changeThemeColorOfCard(id, newColor){
+        const card = this._findRequestedCard(id)
+        card.updateThemeColor(newColor)
+
     }
     _findRequestedCard(id){
         const card = this.cards.filter((currCard) => currCard.div.id === id)

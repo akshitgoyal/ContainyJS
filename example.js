@@ -64,8 +64,9 @@ cards3.turnOnCollapse('Contacts')
 
 // ######################################################################
 
-const cards4 = new cardsGenerator('myId4', '#F5F5DC')
+const cards4 = new cardsGenerator('myId4')
 cards4.addCard('card1', './profilepic4.jpeg', "Jacob", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
 cards4.addLink('card1', 'http://www.google.com', 'Google')
 cards4.addLink('card1', 'http://www.facebook.com', 'Facebook')
 cards4.addLink('card1', 'http://www.linkedin.com', 'LinkedIn')
+cards4.changeThemeColorOfCard('card1',  '#F5F5DC')
