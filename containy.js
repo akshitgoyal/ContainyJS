@@ -296,9 +296,9 @@ class cardsGenerator{
         const deletedCard = this.getRequestedCard(id)
         if(deletedCard !== undefined){
             this.expanded.removeChild(deletedCard.div)
+            const updatedCards = this.cards.filter((currCard) => currCard.div.id !== id)
+            this.cards = updatedCards
         }
-        const updatedCards = this.cards.filter((currCard) => currCard.div.id !== id)
-        this.cards = updatedCards
     }
 
 
