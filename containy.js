@@ -251,15 +251,19 @@ class cardsGenerator{
         this.cards.push(cardObj)
     }
     addLink(id, linkUrl, linkText, iconImg){
-        const card = this.cards.filter((currCard) => currCard.div.id === id)
+        // const card = this.cards.filter((currCard) => currCard.div.id === id)
+        const card = this._findRequestedCard(id)
         log(this.cards)
         log(card)
-        card[0].addLink(linkUrl, linkText, iconImg)
-
+        card.addLink(linkUrl, linkText, iconImg)
     }
     turnOnCollapse(name){
         this._setupCollapsedContainer(name);
-     }
+    }
+    _findRequestedCard(id){
+        const card = this.cards.filter((currCard) => currCard.div.id === id)
+        return card[0]
+    }
 
     _setupCollapsedContainer(name){
         const collapsedCard = document.createElement('div')
