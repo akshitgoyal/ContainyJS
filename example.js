@@ -62,6 +62,8 @@ cards3.addCard('card7', './profilepic6.jpeg', "Bhavik", "Pexel Model", "An aweso
 cards3.changeContainerBackground('#AFEEEE')
 cards3.turnOnCollapse('Contacts')
 cards3.changeCollapsedCardColor('#4169E1')
+cards3.removeCard('card5')
+cards3.removeCard('card5')
 
 // ######################################################################
 

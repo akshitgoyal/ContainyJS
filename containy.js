@@ -292,7 +292,14 @@ class cardsGenerator{
     getAllCards(){
         return this.cards
     }
-
+    removeCard(id){
+        const deletedCard = this.getRequestedCard(id)
+        if(deletedCard !== undefined){
+            this.expanded.removeChild(deletedCard.div)
+        }
+        const updatedCards = this.cards.filter((currCard) => currCard.div.id !== id)
+        this.cards = updatedCards
+    }
 
 
     _setupCollapsedContainer(name){
