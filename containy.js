@@ -258,7 +258,7 @@ class cardsGenerator{
         this.cards.push(cardObj)
     }
     addLink(id, linkUrl, linkText, iconImg){
-        const card = this._findRequestedCard(id)
+        const card = this.getRequestedCard(id)
         card.addLink(linkUrl, linkText, iconImg)
     }
 
@@ -273,14 +273,27 @@ class cardsGenerator{
 
 
     changeThemeColorOfCard(id, newColor){
-        const card = this._findRequestedCard(id)
+        const card = this.getRequestedCard(id)
         card.updateThemeColor(newColor)
 
     }
-    _findRequestedCard(id){
+
+    changeCollapsedCardColor(newColor){
+        if(this.collapse){
+            this.collapsed.firstChild.style.backgroundColor = newColor
+        }
+    }
+
+    getRequestedCard(id){
         const card = this.cards.filter((currCard) => currCard.div.id === id)
         return card[0]
     }
+
+    getAllCards(){
+        return this.cards
+    }
+
+
 
     _setupCollapsedContainer(name){
         const collapsedCard = document.createElement('div')

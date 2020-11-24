@@ -59,8 +59,9 @@ cards3.addCard('card5', './profilepic8.jpeg', "Toby", "Pexel Model", "An awesone
 cards3.addCard('card6', './profilepic7.jpeg', "Ashley", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
 
 cards3.addCard('card7', './profilepic6.jpeg', "Bhavik", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
-cards3.changeContainerBackground('red')
+cards3.changeContainerBackground('#AFEEEE')
 cards3.turnOnCollapse('Contacts')
+cards3.changeCollapsedCardColor('#4169E1')
 
 // ######################################################################
 
