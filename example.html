@@ -4,36 +4,79 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="containy.css">
+
         <title>Containy.JS</title>
         <script defer src="containy.js"></script>
         <script defer src="example.js"></script>
     </head>
-    <body bgcolor="black">
+    <body style="background-color: rgba(15, 11, 11, 0.877);">
         <h1 style="color:white;text-align:center"> Containy.JS</h1>
-        <p style="color:white" >Containy helps you make containers that can store cards. These can be used in multiple use cases like contact directories, Product pages and e-commerce websites like Amazon, photo walls, and many more..</p>
-
-        <h3 style="color:white"> Feature 1: You can have individual card on its own.</h3>
-        <div id='myId1'></div>
+        <div style="background-color:black; height: fit-content; width: fit-content; padding: 5%; border-radius: 10px;">
 
 
-        <h3 style="color:white"> Feature 2: Click on the card to flip the card and reveal more information. Addtionally once the card is flipped, user can switch between sections in the card. </h3>
-        <div id='myId4'></div>
+            <p style="color:white" >Containy helps you make containers that can store cards. These can be used in multiple use cases like contact directories, Product pages and e-commerce websites like Amazon, photo walls, and many more..</p>
+    
+            <h3 style="color:white"> Feature 1: You can have individual card on its own.</h3>
+            <div id='myId1'></div>
+            <div id='myId5'></div>
+    
+    
+            <h3 style="color:white"> Feature 2: Click on the card to flip the card and reveal more information. Addtionally once the card is flipped, user can switch between sections in the card. </h3>
+            <div id='myId4'></div>
+    
+            <h3 style="color:white"> Feature 3: You can have multiple cards in a container.</h3>
+            <div id='myId2'></div>
+    
+            <h3 style="color:white"> Feature 4: You can expand/collapse the cards into a container.</h3>
+            <div id='myId3'></div>
+    
+            <h3 style="color:white">Upcoming planned features before final submission(if time permits):  </h3>
+            <p>
+                <ul style="color:white">
+                    <li>Adding a search bar to let users search in the containers</li>
+                    <li>Setting a view capacity constraint and if the container reaches its capacity, then user can slide to next view to see other cards.</li>
+                    <li>Allowing users to reposition the cards via drag and drop in the container (might not reach this feature as it can be very ambitious of me).</li>
+                </ul>
+            </p>
 
-        <h3 style="color:white"> Feature 3: You can have multiple cards in a container.</h3>
-        <div id='myId2'></div>
+            <p style="color:white">We saw some features of this library. I feel this library has a huge of number of use cases. Now let's see some of them:</p>
+        </div>
+        <h2 style="color:white">Use cases: </h2>
+        <div style="background-color:rgb(211, 197, 181); height: fit-content; width: fit-content; padding: 5%; border-radius: 10px;">
+            <h3>Product Library: Amazon Black Friday Sale</h3>
+            <div id= "productLibrary"></div>
+        </div>
+        <br>
+        <div style="background-color:rgb(206, 168, 168); height: fit-content; width: fit-content; padding: 5%; border-radius: 10px;">
+            <h3>Contacts Directory:</h3>
 
-        <h3 style="color:white"> Feature 4: You can expand/collapse the cards into a container.</h3>
-        <div id='myId3'></div>
+            <form id="addCardContact">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" placeholder="Enter Unique Name"><br>
+                <label for="title">Title:</label><br>
+                <input type="text" id="title"placeholder="Enter person's title"><br>
+                <label for="bio" >Bio:</label><br>
+                <input type="text" id="bio"placeholder="Some description about the person"><br>
+                <label for="smedia">Social Media Link:</label><br>
+                <input type="url" id="smedia" placeholder="Enter Social Media Link"><br>
+                <label for="photo">Image Url:</label><br>
+                <input type="url" id="photo" placeholder="Enter Photo url"><br>
+                
+                <br>
+                <input type="submit" value="Add to contacts">
+            </form>
+            <br>
+            <form id='deleteContact'>
+                <label for="dname">Name:</label><br>
+                <input type="text" id="dname">
+                <input type="submit" value="Delete from contacts">
+            </form>
 
-        <h3 style="color:white">Upcoming planned features before final submission(if time permits):  </h3>
-        <p>
-            <ul style="color:white">
-                <li>Adding a search bar to let users search in the containers</li>
-                <li>If the container reaches its capacity, then user can slide to next view to see other cards.</li>
-                <li>Allowing users to reposition the cards via drag and drop in the container (might not reach this feature as it can be very ambitious of me).</li>
-            </ul>
-        </p>
-        <h3 style="color:white">Other use cases: </h3>
+            <div id= "contacts"></div>
+        </div>
+
+
+
 
     </body>
 
