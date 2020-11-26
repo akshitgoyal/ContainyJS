@@ -263,7 +263,13 @@ class cardsGenerator{
     }
 
     turnOnCollapse(name){
-        this._setupCollapsedContainer(name);
+        if(!this.collapse){
+            this._setupCollapsedContainer(name);
+        }
+        else{
+            console.log("Collapse is already active!")
+        }
+
     }
 
     changeContainerBackground(newColor){

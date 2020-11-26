@@ -140,3 +140,14 @@ function deleteContact(e){
     const deleteName = document.querySelector('#dname').value
     contacts.removeCard(deleteName)
 }
+
+
+const contaddform = document.querySelector('#addCollapseFeature')
+contaddform.addEventListener('submit', addContFeature)
+
+function addContFeature(e){
+    e.preventDefault(); // prevent default form action
+    const contaddname = document.querySelector('#contname').value
+    productLibrary.turnOnCollapse(contaddname)
+    productLibrary.changeCollapsedCardColor('#f0dbd5')
+}
