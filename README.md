@@ -69,6 +69,7 @@ In my Card object, I have the following:
 • `changeContainerBackground(newColor):` This changes the background of the container that contains the card.
 
 • `changeThemeColorOfCard(id, newColor):` changes the theme color of a specific card. This colour is used in multiple views. Changing a specific card does not impact the state of other cards.
+
 • `changeCollapsedCardColor(newColor):` If a collapsed state is set, it lets the user to switch the colour of collapse card.
 
 • `getRequestedCard(id):` Finds the requested card in the container and returns it for the developer.
