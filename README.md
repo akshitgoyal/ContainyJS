@@ -24,22 +24,35 @@ I feel there are a large number of use cases for this library. Some of them woul
 I have two Javascript objects in my library:
 
 1.  **Card:**
-    In my Card object, I have the following:
-    • `this.div` stores the card itself
-    • `this.frontView` stores the frontview of the card(before flipping)
-    • `this.backView` stores the backside of the card (shown after flipping)
-    • `this.aboutSection` stores the about section which is there in backview of the card
-    • similarly, `this.linkSection` stores the link section which is hidden initially.
-    • `this.themeColor` stores the color of the individual card that is used as background theme of the card in various places.
+In my Card object, I have the following:
+
+• `this.div` stores the card itself
+
+• `this.frontView` stores the frontview of the card(before flipping)
+
+• `this.backView` stores the backside of the card (shown after flipping)
+
+• `this.aboutSection` stores the about section which is there in backview of the card
+
+• similarly, `this.linkSection` stores the link section which is hidden initially.
+
+• `this.themeColor` stores the color of the individual card that is used as background theme of the card in various places.
 
 2.  **Container Object:**
-    • `this.mainDiv` contains the big container object itself
-    • `this.expanded` contains all the cards, and also additional elements like buttons, etc depending on the current state of the object. When a card is added, it is shown here and the size is also adjusted automatically.
-    • `this.collapsed` contains the condensed view of the container where all the cards are hidden and are only visible once container is expanded. It changes the view to expanded on clicking on it.
-    • `this.themeColor` contains the default theme of the container and the cards unless changed by the user.
-    • `this.cards` is an array of the cards present in current container. This can be used to support various other functions.
-    • `this.collapse` stores the current state of the container whether it is expanded or collapsed.
-    • `this.containerColor` stores the background theme of the container when expanded.
+
+• `this.mainDiv` contains the big container object itself
+
+• `this.expanded` contains all the cards, and also additional elements like buttons, etc depending on the current state of the object. When a card is added, it is shown here and the size is also adjusted automatically.
+
+• `this.collapsed` contains the condensed view of the container where all the cards are hidden and are only visible once container is expanded. It changes the view to expanded on clicking on it.
+
+• `this.themeColor` contains the default theme of the container and the cards unless changed by the user.
+
+• `this.cards` is an array of the cards present in current container. This can be used to support various other functions.
+
+• `this.collapse` stores the current state of the container whether it is expanded or collapsed.
+
+• `this.containerColor` stores the background theme of the container when expanded.
 
 **Note:** It was necessary to store and preserve these properties because of the way my library is implemented. It allows us to switch easily between different views and DOM manipulations on some use action.
 
