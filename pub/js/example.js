@@ -6,7 +6,9 @@ log('Entered example.js')
 // ######################################################################
 const cards1 = new cardsGenerator('myId1')
 cards1.addCard('card9', './images/profilepic.jpeg', "Laura", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
-
+cards1.addLink('card9', 'http://www.google.com', 'Google')
+cards1.addLink('card9', 'http://www.facebook.com', 'Facebook')
+cards1.addLink('card9', 'http://www.linkedin.com', 'LinkedIn')
 // ######################################################################
 
 const cards2 = new cardsGenerator('myId2')
@@ -33,7 +35,7 @@ cards2.addCard('card5', './images/profilepic8.jpeg', "Toby", "Pexel Model", "An 
 
 cards2.addCard('card6', './images/profilepic7.jpeg', "Ashley", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
 
-cards2.addCard('card7', './images/profilepic6.jpeg', "Bhavik", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
+cards2.addCard('card7', './images/profilepic6.jpeg', "Alex", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
 // ######################################################################
 
 const cards3 = new cardsGenerator('myId3')
@@ -59,7 +61,7 @@ cards3.addCard('card5', './images/profilepic8.jpeg', "Toby", "Pexel Model", "An 
 
 cards3.addCard('card6', './images/profilepic7.jpeg', "Ashley", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
 
-cards3.addCard('card7', './images/profilepic6.jpeg', "Bhavik", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
+cards3.addCard('card7', './images/profilepic6.jpeg', "Alex", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
 cards3.changeContainerBackground('#AFEEEE')
 cards3.turnOnCollapse('Contacts')
 cards3.changeCollapsedCardColor('#4169E1')
@@ -79,6 +81,7 @@ cards4.changeThemeColorOfCard('card1',  '#F5F5DC')
 // ######################################################################
 const cards5 = new cardsGenerator('myId5')
 cards5.addCard('card1', '', "Unknown Person", "This person does not have a photo", "Woah, that means we don't have to put photo, it still works!! That's awesome.")
+cards5.changeThemeColorOfCard('card1', '#FFFDD0')
 
 
 // ####################################################################### USE CASES #############################
