@@ -1,6 +1,8 @@
 # ContainyJS
 
-**Description and Use cases:** My library makes containers and cards objects that can be placed on the screen. The cards are stored in big containers which can be expanded or collapsed based on some user action. The card’s front view gives brief description about of the subject. On clicking the card flips into detailed summary and also contains links related to the subject. I got inspired for this idea through the folders functionality in mobile phones where apps are combined into folder.
+**Description and Use cases:** 
+
+My library makes containers and cards objects that can be placed on the screen. The cards are stored in big containers which can be expanded or collapsed based on some user action. The card’s front view gives brief description about of the subject. On clicking the card flips into detailed summary and also contains links related to the subject. I got inspired for this idea through the folders functionality in mobile phones where apps are combined into folder.
 I feel there are a large number of use cases for this library. Some of them would be Contact Directories, Product Libraries, flashcards on Education websites, Photo walls, Navigation Window, etc.
 
 **Features implemented:**
