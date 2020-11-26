@@ -121,7 +121,7 @@ function onFormClick(e){
     const sMedia = document.querySelector('#smedia').value
     const imgLink = document.querySelector('#photo').value
     log(addTitle, addBio, sMedia, imgLink)
-        //Add card
+    //Add card
 
     contacts.addCard(addName, imgLink, addName, addTitle, addBio)
     contacts.addLink(addName, addBio)

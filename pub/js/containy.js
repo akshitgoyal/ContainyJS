@@ -239,7 +239,7 @@ class cardsGenerator{
         this.expanded.className = 'expandedCards'
         this.collapsed = document.createElement('div');
         this.collapsed.className = 'collapsedContainer'
-        // this._setupCollapsedContainer()
+
         this.expandedContainer.appendChild(this.expanded)
         this.mainDiv.appendChild(this.expandedContainer)
         this.themeColor = themeColor;
