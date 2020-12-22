@@ -13,4 +13,4 @@ app.listen(port, () => {
 	log(`Listening on port ${port}...`)
 })
 
-app.use(express.static(path.join(__dirname, '/pub')))
+app.use(express.static(path.join(__dirname, '/pub/build')))

@@ -4,8 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "setup": "npm install && cd pub && npm install && cd ..",
+    "build-run": "cd pub && npm run build && cd .. && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "cd pub && npm install && npm run build"
   },
   "repository": {
     "type": "git",
