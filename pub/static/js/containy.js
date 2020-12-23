@@ -3,6 +3,7 @@ const log = console.log;
 log('----------');
 log('Entered containy.js');
 
+// Wrapping the code in an anonymous function
 (function(global, document) { 
 
     class card {
@@ -21,7 +22,7 @@ log('Entered containy.js');
             this.aboutSection = document.createElement('div')
             this.linksSection = document.createElement('div')
             this.themeColor = themeColor
-
+            this.zoom = false;
 
         }
         makeCard(imgUrl, name, title, description){
@@ -34,8 +35,11 @@ log('Entered containy.js');
             // Setup back view
             this._setupBackView(imgUrl, name,title, description)
 
-            // Only append front since that is the default view
+            // Adding the ability to flip between views!
             this.div.onclick = () => this._switchMainView()
+
+
+            // Only append front since that is the default view
             this.div.appendChild(this.frontView)
             // this.div.appendChild(this.backView)
         }
@@ -207,12 +211,16 @@ log('Entered containy.js');
         }
 
         _switchMainView(){
-            if(this.div.classList.contains("active")){
-                this.div.classList.remove("active")
+            if(this.zoom === false){
+
+                if(this.div.classList.contains("active")){
+                    this.div.classList.remove("active")
+                }
+                else{
+                    this.div.classList.add("active")
+                }
             }
-            else{
-                this.div.classList.add("active")
-            }
+
             if(this.div.firstChild === this.frontView)
             {
                 log("front clicked")
@@ -222,7 +230,27 @@ log('Entered containy.js');
                 log("back clicked")
                 this.div.replaceChild(this.frontView, this.backView)
             }
+            
         }
+
+        addZoomAbility(){
+            this.zoom = true;
+            this.div.classList.remove("active")
+            this.div.onmouseenter = () => {
+
+            if(this.div.classList.contains("active")){
+                this.div.classList.remove("active")
+            }
+
+                this.div.classList.add("zoom")
+  
+            }
+            this.div.onmouseleave = () => {
+                this.div.classList.remove("zoom")
+            } 
+        }
+
+
 
     }
 
@@ -266,16 +294,6 @@ log('Entered containy.js');
         self.mainDiv.replaceChild(self.collapsed, self.expandedContainer)
         self.mainDiv.classList.remove("expandAnimate")
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -360,6 +378,12 @@ log('Entered containy.js');
                 const updatedCards = this.cards.filter((currCard) => currCard.div.id !== id)
                 this.cards = updatedCards
             }     
+        }
+        addZoomAbilityToCard(id){
+            const card = this.getRequestedCard(id);
+            if(card !== undefined){
+                card.addZoomAbility();
+            }
         }
      
 

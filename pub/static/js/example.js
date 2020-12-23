@@ -17,6 +17,7 @@ function examples(){
     const cards1 = new cardsGenerator('myId1')
     cards1.addCard('card9', './images/profilepic.jpeg', "Laura", title, description)
     addLinksToObjects(cards1, 'card9');
+    cards1.addZoomAbilityToCard('card9')
 
     const cards5 = new cardsGenerator('myId5')
     cards5.addCard('card1', '', "Unknown Person", "This person does not have a photo", "Woah, that means we don't have to put photo, it still works!! That's awesome.")
