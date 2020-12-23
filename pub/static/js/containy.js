@@ -237,19 +237,13 @@ log('Entered containy.js');
             this.zoom = true;
             this.div.classList.remove("active")
             this.div.onmouseenter = () => {
-
-            if(this.div.classList.contains("active")){
-                this.div.classList.remove("active")
-            }
-
                 this.div.classList.add("zoom")
-  
             }
+
             this.div.onmouseleave = () => {
                 this.div.classList.remove("zoom")
             } 
         }
-
 
 
     }
@@ -386,8 +380,6 @@ log('Entered containy.js');
             }
         }
      
-
-
     }
 
 

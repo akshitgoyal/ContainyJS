@@ -17,7 +17,6 @@ function examples(){
     const cards1 = new cardsGenerator('myId1')
     cards1.addCard('card9', './images/profilepic.jpeg', "Laura", title, description)
     addLinksToObjects(cards1, 'card9');
-    cards1.addZoomAbilityToCard('card9')
 
     const cards5 = new cardsGenerator('myId5')
     cards5.addCard('card1', '', "Unknown Person", "This person does not have a photo", "Woah, that means we don't have to put photo, it still works!! That's awesome.")
@@ -29,6 +28,8 @@ function examples(){
     clickCard.addCard("click1","", "CLICK ME", "Tap anywhere on the card", "Woah! Its soo cool that it flipped!");
     clickCard.changeThemeColorOfCard('click1', '#FB9379');
 
+
+
     // ########################### Feature 3 ###########################################
 
     const quiz = new cardsGenerator('quizcard');
@@ -37,36 +38,51 @@ function examples(){
 
 
     // ########################### Feature 4 ###########################################
+    const zoomCard = new cardsGenerator('zoomcard');
+    zoomCard.addCard("zoomcard1","", "Zoom", "Hover anywhere on the card", "Woah! Its soo cool that it zoomed!");
+    zoomCard.changeThemeColorOfCard('zoomcard1', '#FB9379');
+    zoomCard.addZoomAbilityToCard('zoomcard1');
+
+
+    // ########################### Feature 5 ###########################################
 
     const cards4 = new cardsGenerator('myId4');
     cards4.addCard('card1', './images/profilepic4.jpeg', "Jacob", title, description);
     addLinksToObjects(cards4, 'card1');
     cards4.changeThemeColorOfCard('card1',  '#F5F5DC');
+    cards4.addZoomAbilityToCard('card1');
 
-    // ########################### Feature 5 ###########################################
+    // ########################### Feature 6 ###########################################
     const cards2 = new cardsGenerator('myId2');
     cards2.addCard('card1', './images/profilepic.jpeg', "Laura", title, description);
     addLinksToObjects(cards2, 'card1');
+    cards2.addZoomAbilityToCard('card1');
 
     cards2.addCard('card2', './images/profilepic4.jpeg', "Jacob", title, description);
     addLinksToObjects(cards2, 'card2');
+    cards2.addZoomAbilityToCard('card2');
 
     cards2.addCard('card3', './images/profilepic3.jpeg', "Cassandra", title, description);
     addLinksToObjects(cards2, 'card3');
+    cards2.addZoomAbilityToCard('card3');
 
     cards2.addCard('card4', './images/profilepic5.jpeg', "Christine", title, description);
     addLinksToObjects(cards2, 'card4');
+    cards2.addZoomAbilityToCard('card4');
 
     cards2.addCard('card5', './images/profilepic8.jpeg', "Toby", title, description);
     addLinksToObjects(cards2, 'card5');
+    cards2.addZoomAbilityToCard('card5');
 
     cards2.addCard('card6', './images/profilepic7.jpeg', "Ashley", title, description);
-    addLinksToObjects(cards2, 'card3');
+    addLinksToObjects(cards2, 'card6');
+    cards2.addZoomAbilityToCard('card6');
     
     cards2.addCard('card7', './images/profilepic6.jpeg', "Alex", title, description);
     addLinksToObjects(cards2, 'card7');
+    cards2.addZoomAbilityToCard('card7');
     
-    // ########################### Feature 6 ###########################################
+    // ########################### Feature 7 ###########################################
 
     const cards3 = new cardsGenerator('myId3')
     cards3.addCard('card1', './images/profilepic.jpeg', "Laura", title, description);
@@ -90,7 +106,7 @@ function examples(){
     cards3.turnOnCollapse('Contacts')
     cards3.changeCollapsedCardColor('#3678E5')  
 
-    // ########################### Feature 7 ###########################################
+    // ########################### Feature 8 ###########################################
     const nounExample = new cardsGenerator('nounExa');
     nounExample.addCard("Countable",'',"Countable", "Tap for more info!", "Here are some examples: bed, cat, movie, etc" )
     nounExample.addLink("Countable", "https://www.english-grammar-revolution.com/list-of-nouns.html", 'Noun Lesson');
@@ -106,7 +122,7 @@ function examples(){
         nounExample.addLink(Noun, "https://www.english-grammar-revolution.com/list-of-nouns.html", 'Noun Lesson');
     })
 
-        // ########################### Feature 8 ###########################################
+        // ########################### Feature 9 ###########################################
 
         const delnounform = document.querySelector('#deleteNounForm');
         delnounform.addEventListener('submit', (e) => {
@@ -115,93 +131,30 @@ function examples(){
             nounExample.removeCard(delNoun)
         })
 
-            // ########################### Feature 9 ###########################################
+        // ########################### Feature 10 ###########################################
+        const productLibrary = new cardsGenerator('productLibrary')
+        productLibrary.addCard('firestick', './images/firestick.jpg', "Amazon Fire Stick", "Price: $34.99", "All-new Fire TV Stick with Alexa Voice Remote (includes TV controls) | HD streaming device | 2020 release.")
+        productLibrary.addLink('firestick', 'https://www.amazon.ca/Staging-Product-Not-Retail-Sale/dp/B07ZZW1B86/ref=zg_bsnr_electronics_1?_encoding=UTF8&psc=1&refRID=9P83G033ED9G2VHGRRN4', 'Click here to buy')
+        productLibrary.addZoomAbilityToCard('firestick');
 
 
+        productLibrary.addCard('drone', './images/drone.jpg', "Drone Quadcopter", "Price: $569", "DJI Mini 2 – Ultralight and Foldable Drone Quadcopter for Adults and Kids, 3-Axis Gimbal with 4K Camera, 12MP Photo and 31 Mins Flight Time")
+        productLibrary.addLink('drone', 'https://www.amazon.ca/DJI-Mini-Ultralight-Quadcopter-Transmission/dp/B08JGYF5W1/ref=zg_bsnr_electronics_46?_encoding=UTF8&psc=1&refRID=9P83G033ED9G2VHGRRN4', 'Click here to buy')
+        productLibrary.addZoomAbilityToCard('drone');
+
+
+        productLibrary.addCard('iphone', './images/iphone.jpg', "iPhone XS", "Price: $599.99", "Apple iPhone X, GSM Unlocked 5.8in, 64 GB - Silver (Renewed)")
+        productLibrary.addLink('iphone', 'https://www.amazon.ca/Apple-iPhone-GSM-Unlocked-5-8/dp/B07757WNJP/ref=sr_1_6?dchild=1&keywords=iphone&qid=1606266678&s=electronics&sr=1-6', 'Click here to buy')
+        productLibrary.addZoomAbilityToCard('iphone');
+
+        productLibrary.addCard('xbox', './images/xbox.jpg', "Xbox Series S", "Price: Currently Unavailable", "Introducing the Xbox Series S, the smallest, sleekest Xbox console ever. Experience the speed and performance of a next-gen all-digital console at an accessible price point.")
+        productLibrary.addLink('xbox', 'https://www.amazon.ca/Microsoft-RRS-00001-Xbox-Series-S/dp/B08G9J44ZN?ref_=ast_sto_dp', 'Click here to buy')
+        productLibrary.addZoomAbilityToCard('xbox');
+        productLibrary.changeThemeColorOfCard('firestick', '#ff9f29')
+        productLibrary.changeThemeColorOfCard('drone', '#626cf5')
+        productLibrary.changeThemeColorOfCard('iphone', '#db7563')
+        productLibrary.changeThemeColorOfCard('xbox', '#91ed82')
 
 }
-
 
 examples();
-
-
-
-
-// ######################################################################
-
-
-
-// ######################################################################
-
-
-// ####################################################################### USE CASES #############################
-const productLibrary = new cardsGenerator('productLibrary')
-productLibrary.addCard('firestick', './images/firestick.jpg', "Amazon Fire Stick", "Price: $34.99", "All-new Fire TV Stick with Alexa Voice Remote (includes TV controls) | HD streaming device | 2020 release.")
-productLibrary.addLink('firestick', 'https://www.amazon.ca/Staging-Product-Not-Retail-Sale/dp/B07ZZW1B86/ref=zg_bsnr_electronics_1?_encoding=UTF8&psc=1&refRID=9P83G033ED9G2VHGRRN4', 'Click here to buy')
-
-
-productLibrary.addCard('drone', './images/drone.jpg', "Drone Quadcopter", "Price: $569", "DJI Mini 2 – Ultralight and Foldable Drone Quadcopter for Adults and Kids, 3-Axis Gimbal with 4K Camera, 12MP Photo, 31 Mins Flight Time, OcuSync 2.0 10km HD Video Transmission, QuickShots, Gray")
-productLibrary.addLink('drone', 'https://www.amazon.ca/DJI-Mini-Ultralight-Quadcopter-Transmission/dp/B08JGYF5W1/ref=zg_bsnr_electronics_46?_encoding=UTF8&psc=1&refRID=9P83G033ED9G2VHGRRN4', 'Click here to buy')
-
-
-productLibrary.addCard('iphone', './images/iphone.jpg', "iPhone XS", "Price: $599.99", "Apple iPhone X, GSM Unlocked 5.8in, 64 GB - Silver (Renewed)")
-productLibrary.addLink('iphone', 'https://www.amazon.ca/Apple-iPhone-GSM-Unlocked-5-8/dp/B07757WNJP/ref=sr_1_6?dchild=1&keywords=iphone&qid=1606266678&s=electronics&sr=1-6', 'Click here to buy')
-
-productLibrary.addCard('xbox', './images/xbox.jpg', "Xbox Series S", "Price: Currently Unavailable", "Introducing the Xbox Series S, the smallest, sleekest Xbox console ever. Experience the speed and performance of a next-gen all-digital console at an accessible price point.Go all-digital and enjoy disc-free, next-gen gaming with the smallest Xbox console ever made.")
-productLibrary.addLink('xbox', 'https://www.amazon.ca/Microsoft-RRS-00001-Xbox-Series-S/dp/B08G9J44ZN?ref_=ast_sto_dp', 'Click here to buy')
-productLibrary.changeThemeColorOfCard('firestick', '#ff9f29')
-productLibrary.changeThemeColorOfCard('drone', '#626cf5')
-productLibrary.changeThemeColorOfCard('iphone', '#db7563')
-productLibrary.changeThemeColorOfCard('xbox', '#91ed82')
-
-// ######################################################################
-
-const contacts = new cardsGenerator('contacts')
-
-contacts.addCard('Jacob', './images/profilepic4.jpeg', "Jacob", "Pexel Model", "An awesone person who loves to go on hiking and mountain biking")
-
-const form = document.querySelector('#addCardContact')
-form.addEventListener('submit', onFormClick)
-
-function onFormClick(e){
-    e.preventDefault(); // prevent default form action
-
-    const addName = document.querySelector('#name').value
-    console.log(addName)
-    const addTitle = document.querySelector('#title').value
-    const addBio = document.querySelector('#bio').value
-    const sMedia = document.querySelector('#smedia').value
-    const imgLink = document.querySelector('#photo').value
-    log(addTitle, addBio, sMedia, imgLink)
-    //Add card
-
-    contacts.addCard(addName, imgLink, addName, addTitle, addBio)
-    contacts.addLink(addName, addBio)
-
-
-
-}
-
-
-const delform = document.querySelector('#deleteContact')
-delform.addEventListener('submit', deleteContact)
-
-function deleteContact(e){
-    e.preventDefault(); // prevent default form action
-
-    const deleteName = document.querySelector('#dname').value
-    contacts.removeCard(deleteName)
-}
-
-
-const contaddform = document.querySelector('#addCollapseFeature')
-contaddform.addEventListener('submit', addContFeature)
-
-function addContFeature(e){
-    e.preventDefault(); // prevent default form action
-    const contaddname = document.querySelector('#contname').value
-    productLibrary.turnOnCollapse(contaddname)
-    productLibrary.changeCollapsedCardColor('#f0dbd5')
-}
-
-

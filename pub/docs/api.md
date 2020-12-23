@@ -69,6 +69,18 @@ This method adds links to back view of the card specified by the **id** in the c
 ---
 
 ```javascript
+addZoomAbilityToCard(id);
+```
+This method adds the ability to zoom to the card specified by the **id** in the container. The method should follow the following property requirements:
+
+| Property 	| Default    	| Type   	| Description                                                                	|
+|----------	|------------	|--------	|----------------------------------------------------------------------------	|
+| `id`     	| (required) 	| String 	| This is the id of the card in container to which you want to add Zoom Ability |
+
+---
+
+
+```javascript
 turnOnCollapse(name);
 ```
 This method converts the big container into a small collapsed version. It also adjusts the DOM automatically and elegantly. You can access the big container by clicking anywhere on the collapsed container. This also adds a 'collapse' button in the big container. The color of the card is same as the theme color. However, can be changed using methods below.
