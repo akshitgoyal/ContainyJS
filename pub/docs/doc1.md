@@ -9,7 +9,7 @@ slug: /
 
 ### Download and Install
 
-1. Download the [latest release from Github.](https://www.google.com/)
+1. Download the [latest release from Github.](https://github.com/csc309-fall-2020/js-library-goyalak2/releases/tag/v1.0)
 2. Obtain the `containy.js` which contains the library and `containy.css` which contains the CSS styling for the library objects.
 
 ### Loading the JavaScript files to your HTML page
