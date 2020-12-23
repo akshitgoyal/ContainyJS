@@ -1,11 +1,9 @@
 # ContainyJS
 
-**Description and Use cases:** 
+**Description:** 
+ContainyJS is a library making the developer's and user's life easy by creating container objects for them! The idea was inspired from app folders on iOS devices, and can prove to be game changer for web developers! There is nothing similar out there, and I hope you enjoy it. 
 
-My library makes containers and cards objects that can be placed on the screen. The cards are stored in big containers which can be expanded or collapsed based on some user action. The card’s front view gives brief description about of the subject. On clicking the card flips into detailed summary and also contains links related to the subject. I got inspired for this idea through the folders functionality in mobile phones where apps are combined into folder.
-I feel there are a large number of use cases for this library. Some of them would be Contact Directories, Product Libraries, flashcards on Education websites, Photo walls, Navigation Window, etc.
-
-**Link:** https://containyjs.herokuapp.com/
+## Link: https://containyjs.herokuapp.com/
 
 ## Getting Started
 #### Enjoying the library so far? Let's transform your website with these amazing containers!
@@ -65,5 +63,6 @@ Congratulations! You've successfully created your first Containy Object!! Its no
 For detailed documentation and to explore more cool features, please visit [API Documentation.](https://containyjs.herokuapp.com/docs/api) To see more examples and use cases, visit [the examples page.](https://containyjs.herokuapp.com/example.html)
 
 
-**Direct Link to API Documentation:** https://containyjs.herokuapp.com/docs/api
+## Direct Link to API Documentation: https://containyjs.herokuapp.com/docs/api
 
+For any feedback or improvments, don't hesitate to reach out at goyalakshit.ag@gmail.com
