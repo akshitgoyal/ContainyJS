@@ -3,7 +3,7 @@
 **Description:** 
 ContainyJS is a library making the developer's and user's life easy by creating container objects for them! The idea was inspired from app folders on iOS devices, and can prove to be game changer for web developers! There is nothing similar out there, and I hope you enjoy it. 
 
-*NOTE* :In this repository, the library can be located at `/pub/static/js/containy.js` and style sheet for library at `/pub/static/containy.css`. The example page HTML and CSS are also located in the same static directory.
+**Note** :In this repository, the library can be located at `/pub/static/js/containy.js` and style sheet for library at `/pub/static/containy.css`. The example page HTML, CSS, and JS are also located in the same static directory.
 
 
 ### Link: https://containyjs.herokuapp.com/
