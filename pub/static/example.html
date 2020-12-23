@@ -3,97 +3,192 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+        <!-- CSS File required by my library -->
+
+        <link rel="stylesheet" href="example.css">
         <link rel="stylesheet" href="containy.css">
+        
 
-        <title>Containy.JS</title>
+        <!-- My Library -->
         <script defer src="/js/containy.js"></script>
+
+        <!-- JS File for this page! -->
         <script defer src="/js/example.js"></script>
+
+        <title>ContainyJS</title>
     </head>
-    <body style="background-color: rgba(15, 11, 11, 0.877);">
-        <h1 style="color:white;text-align:center"> Containy.JS</h1>
-        <div style="background-color:black; height: fit-content; width: fit-content; padding: 5%; border-radius: 10px;">
+    <body>
+        <nav class="navbar fixed-top navbar-dark navBar">
+            <!-- Navbar content -->
+            <a class="navbar-brand" href="/docs/api">
+                <img src="/img/backarrow.png" width="30" height="20" class="d-inline-block align-top" alt="">
+                <span>API Docs</span>
+            </a>
+        </nav>
 
+        <div id= "examplesHead">
 
-            <p style="color:white" >Containy helps you make containers that can store cards. These can be used in multiple use cases like contact directories, Product pages and e-commerce websites like Amazon, photo walls, and many more..</p>
-    
-            <h3 style="color:white"> Feature 1: You can have individual card on its own.</h3>
-            <div id='myId1'></div>
-            <div id='myId5'></div>
-    
-    
-            <h3 style="color:white"> Feature 2: Click on the card to flip the card and reveal more information. Addtionally once the card is flipped, user can switch between sections in the card. </h3>
-            <div id='myId4'></div>
-    
-            <h3 style="color:white"> Feature 3: You can have multiple cards in a container.</h3>
-            <div id='myId2'></div>
-    
-            <h3 style="color:white"> Feature 4: You can expand/collapse the cards into a container.(click on the container to expand)</h3>
-            <div id='myId3'></div>
-    
-            <h3 style="color:white">Upcoming planned features before final submission(if time permits):  </h3>
-            <p>
-                <ul style="color:white">
-                    <li>Adding a search bar to let users search in the containers</li>
-                    <li>Setting a view capacity constraint and if the container reaches its capacity, then user can slide to next view to see other cards.</li>
-                    <li>Allowing users to reposition the cards via drag and drop in the container (might not reach this feature as it can be very ambitious of me).</li>
-                </ul>
-            </p>
+            <img src="/img/logo.svg" width="100" height="100" alt="logo">
 
-            <p style="color:white">We saw some features of this library. I feel this library has a huge of number of use cases. Now let's see some of them:</p>
+            <h2>Examples</h2>
+            <span>Loved the idea so far? Lets look at some cool things this library can do!</span>
+
         </div>
-        <h2 style="color:white">Use cases: </h2>
-        <div style="background-color:rgb(211, 197, 181); height: fit-content; width: fit-content; padding: 5%; border-radius: 10px;">
-            <h3>Product Library: Amazon Black Friday Sale</h3>
+
+        <div id = "featuretype1">
+            <h4 class="featureHeading"> Feature 1: Individual Cards</h4>
+            <span>You can have individual cards on its own. Depending on the purpose, you can choose to include the picture or not.</span>
+            <div id ="f1container">
+                <div id='myId1'></div>
+                <div id='myId5'></div>
+            </div>
+        </div>
+
+        <div id="featuretype1">
+            <h4 class="featureHeading"> Feature 2: Flip</h4>
+            <span>If you click anywhere on the card, the card will flip to show its different view! <br> Woah! isn't that smooth?</span>
+            <div id ="f1container">
+                <div id='clickMe'></div>
+            </div>
+        </div>
+
+        <div id="featuretype1">
+            <h4 class="featureHeading"> Feature 3: Backview</h4>
+            <span> Once flipped, you can see the backview! Here you can have detailed information about the cards.</span>
+            <div id ="f1container">
+                <div id='quizcard'></div>
+            </div>
+        </div>
+
+        <div id="featuretype1">
+            <h4 class="featureHeading"> Feature 4: About and Link Section</h4>
+            <span> Once flipped, you can switch between About and Link section where About contains inforamtion about the card, and Link will have any addtional links related to the card!</span>
+            <br><br>
+            <span> <b>Cool Fact:</b> As an additional feature, when you click on the links or switch between about and link, it prevents the default behaviour of flipping! <br> What else? You don't need to worry about DOM, as it elegantly swithces without affecting other elements on your page!</span>
+
+            <div id ="f1container">
+                <div id='myId4'></div>
+            </div>
+        </div>
+
+        <div id="featuretype1">
+            <h4 class="featureHeading"> Feature 5: Multiple Cards</h4>
+            <span> You can have multiple cards in a big container. The DOM is adjusted automatically!</span>
+            <div id ="f1container">
+                <div id='myId2'></div>
+            </div>
+        </div>
+
+        <div id="featuretype1">
+            <h4 class="featureHeading"> Feature 6: Expand and Collapse</h4>
+            <span> If you feel you page is full of cards, you can collapse the cards in a small container and expand them whenever you want by clicking anywhere on the container!
+            <br>
+            <b>Won't that mess my web page?</b> Actually NO, the awesome thing about this library is, DOM is effeciently manipulated!
+            <br>
+            <b>What else?</b> Oh! in case you missed it, a collapse button was added so can can collapse the big container back!
+            </span>
+            <div id ="f1container">
+                <div id='myId3'></div>
+            </div>
+        </div>
+        <div id ="quesHead">
+            <h3>Are you convinced this is the coolest JS library ever? </h3>
+            <h4> No? Okay, check this out ! </h4>
+
+            <span> We know due to online teaching many middle school teachers are facing problems! <br>
+                Let's consider a case where a teacher asks students to add types of nouns with examples and she wants to make it a fun activity:</span>
+        </div>
+
+        <div class="featuretype2">
+
+
+
+            <div class="adddelFeature">
+                <h4 class="featureHeading2"> Feature 7: Add Cards</h4>
+                <form id="addNounForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class = "featureHeading2"  for="inputNoun">Type of Noun</label>
+                            <input type="text" class="form-control" id="inputNoun" placeholder="Try like: Common, Proper, Countable etc (must be unique)" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class = "featureHeading2" for="inputExample">Examples</label>
+                            <input type="text" class="form-control" id="inputExample" placeholder="Try like: man, mountain, etc" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Noun</button>
+                </form>
+                <div id ="f1container">
+                    <div id='nounExa'></div>
+                </div>
+            </div>
+
+            
+            <div class="adddelFeature">
+                <h4 class="featureHeading2"> Feature 8: Delete Cards</h4>
+                <span class="featureHeading2"> Made a mistake? Don't worry, we got you covered!</span>
+                <form id="deleteNounForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class = "featureHeading2"  for="delNoun">Type of Noun</label>
+                            <input type="text" class="form-control" id="delNoun" placeholder="Noun that you added above (exact name)" required>
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Delete Noun</button>
+
+                </form>
+            </div>
+
+
+
+
+
+
+            
+        </div>
+
+        <div id=quesHead>
+            <span> Now let's say you are on Amazon Website for Black Friday Sale and you added so many products to your wishlist. <br> You want to minimise the wishlist but you don't want to delete any items!</span>
+        </div>
+        <div class="featuretype2">
+            <h4 class="featureHeading2"> Feature 9: Collapse Cards (User End)</h4>
             <form id="addCollapseFeature">
-                <label for="contname">Name:</label><br>
-                <input type="text" id="contname" placeholder="Enter Name for the Container">
-                <input type="submit" value="Add Collapse Feature">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class ="featureHeading2" for="contname">Name:</label><br>
+                        <input type="text" id="contname" placeholder="Enter Name for the Container">
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-primary">Add Collapse Feature</button>
             </form>
-            <br>
-            <br>
-            <div id= "productLibrary"></div>
+            <div id ="f1container">
+                <div id= "productLibrary"></div>
+            </div>
         </div>
-        <br>
-        <div style="background-color:rgb(206, 168, 168); height: fit-content; width: fit-content; padding: 5%; border-radius: 10px;">
-            <h3>Contacts Directory:</h3>
+        <div id = "featuretype1">
+            <h2 class="featureHeading"> What's next? </h2>
 
-                
-            <form id="addCardContact">
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" placeholder="Enter Unique Name"><br>
-                <label for="title">Title:</label><br>
-                <input type="text" id="title"placeholder="Enter person's title"><br>
-                <label for="bio" >Bio:</label><br>
-                <input type="text" id="bio"placeholder="Some description about the person"><br>
-                <label for="smedia">Social Media Link:</label><br>
-                <input type="url" id="smedia" placeholder="Enter Social Media Link"><br>
-                <label for="photo">Image Url:</label><br>
-                <input type="url" id="photo" placeholder="Enter Photo url"><br>
-                
-                <br>
-                <input type="submit" value="Add to contacts">
-            </form>
-            <br>
-            <form id='deleteContact'>
-                <label for="dname">Name:</label><br>
-                <input type="text" id="dname">
-                <input type="submit" value="Delete from contacts">
-            </form>
+            <p> I tried to cover many use cases through my examples above! However there are many more use cases for the library like Photo walls, Navigation Window, Games! Actually, this library can be used almost anywhere!</p>
 
-            <div id= "contacts"></div>
+            <p>I demostrated just some of the features here! There are <b>many more features</b> like adding links, changing colours of containers, changing colours of different cards in the same container, etc!</p> To explore more, visit the <b>API Documentation</b> in the NavBar to see what's in store for you! I hope you enjoyed the library and are excited to gets hands on with it!
         </div>
 
-        <h3 style="color:white">There are many more use cases like flashcards on Education websites, Photo walls, Navigation Window, etc</h3>
-
-        <p>
-
-            &nbsp;
-            &nbsp;
-            &nbsp;
-            &nbsp;
-        </p>
-
-
+        <!-- <div class="text-center p-3"> 
+            <p class="copyright-text">Copyright &copy; 2020 Akshit Goyal.
+        </div> -->
+        <div class="navbar navbar-inverse navbar-fixed-bottom footer">
+          <div class="container">
+             <p class="copyright-text featureHeading2 ">Copyright &copy; 2020 Akshit Goyal.</p>
+          </div>
+        </div>
+            
     </body>
 
 
