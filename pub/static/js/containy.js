@@ -6,15 +6,17 @@ log('Entered containy.js');
 // Wrapping the code in an anonymous function
 (function(global, document) { 
 
+
+
+    // This is a private object whose instances are stores in container object.
     class card {
-        constructor(id,themeColor, height, width){
+        constructor(id,themeColor){
             // Initialize main card container div
             this.div = document.createElement('div')
             this.div.id = id
             this.div.style.height = '320px'
             this.div.style.width = '240px'
-            // this.div.style.height = '130px'
-            // this.div.style.width = '80px'
+
 
             // Initialise front view
             this.frontView = document.createElement('div')
@@ -38,11 +40,12 @@ log('Entered containy.js');
             // Adding the ability to flip between views!
             this.div.onclick = () => this._switchMainView()
 
-
             // Only append front since that is the default view
             this.div.appendChild(this.frontView)
-            // this.div.appendChild(this.backView)
+
         }
+
+        // This function adds links to the link section in the backview of card.
         addLink(linkUrl, linkText){
             const linkButton = document.createElement('button')
             linkButton.appendChild(document.createTextNode(linkText))
@@ -54,14 +57,30 @@ log('Entered containy.js');
             this.linksSection.appendChild(linkButton)
 
         }
+
+        // Updates the Theme color of this specific card
         updateThemeColor(newColor){
             this.themeColor = newColor
             this.frontView.style.backgroundColor = this.themeColor
             this.backView.firstChild.style.backgroundColor = this.themeColor
 
-        } 
+        }
+
+        // This function adds Zoom ability to the card.
+        addZoomAbility(){
+            this.zoom = true;
+            this.div.classList.remove("active")
+            this.div.onmouseenter = () => {
+                this.div.classList.add("zoom")
+            }
+
+            this.div.onmouseleave = () => {
+                this.div.classList.remove("zoom")
+            } 
+        }
 
 
+        // Helper Function for setting up thr DOM elements during initilization
         _getNameandTitleTag(name, title){
             const profileText = document.createElement('div')
             const nameText = document.createElement('p')
@@ -85,7 +104,7 @@ log('Entered containy.js');
         }
 
 
-
+        // Helper Function for setting up thr DOM elements during initilization
 
         _setupFrontView(imgUrl, name, title){
             // Setup front view image and background
@@ -102,6 +121,7 @@ log('Entered containy.js');
             
         }
 
+        // Helper Function for setting up thr DOM elements during initilization
         _getAvatarPhotoTag(imgUrl){
             const profileImg = document.createElement('img')
             profileImg.className = 'profileImg'
@@ -110,6 +130,7 @@ log('Entered containy.js');
             return profileImg
 
         }
+        // Helper Function for setting up thr DOM elements during initilization
 
         _setupUpperHalfBackView(imgUrl, name, title){
             const upperHalf = document.createElement('div')
@@ -132,6 +153,7 @@ log('Entered containy.js');
 
         }
 
+        // Helper Function for setting up thr DOM elements during initilization
         _setupLowerHalfBackView(description){
             const lowerHalf = document.createElement('div')
             lowerHalf.className = 'lowerHalf'
@@ -174,6 +196,7 @@ log('Entered containy.js');
 
         }
 
+        // Helper Function for setting up thr DOM elements during initilization
         _setupBackView(imgUrl, name, title, description){
             // // Setup main back view styling   
             this.backView.style.height = '100%'
@@ -192,6 +215,7 @@ log('Entered containy.js');
             this.backView.appendChild(lowerHalf)
 
         }
+        // This helpers helps us to switch between sections in backview and perform DOM manipulation
         _switchDescription(buttonName) {
             if(buttonName == 'aboutButton'){
                 if(!this.backView.children[1].contains(this.aboutSection)){
@@ -210,6 +234,7 @@ log('Entered containy.js');
             }
         }
 
+        // This helpers helps us to switch between front and back view, and perform DOM manioulation
         _switchMainView(){
             if(this.zoom === false){
 
@@ -233,23 +258,10 @@ log('Entered containy.js');
             
         }
 
-        addZoomAbility(){
-            this.zoom = true;
-            this.div.classList.remove("active")
-            this.div.onmouseenter = () => {
-                this.div.classList.add("zoom")
-            }
-
-            this.div.onmouseleave = () => {
-                this.div.classList.remove("zoom")
-            } 
-        }
-
-
     }
 
 
-
+    // Private Method used by Container Object Below.
     function _setupCollapsedContainer(self, name){
         console.log("zooobiedoobie")
         console.log(self)
@@ -279,11 +291,13 @@ log('Entered containy.js');
         
         self.collapse = true
     }
+        // Private Method used by Container Object Below.
         
     function _expandContainer(self){
         self.mainDiv.replaceChild(self.expandedContainer, self.collapsed)
         self.mainDiv.classList.add("expandAnimate")
     }
+        // Private Method used by Container Object Below.
     function _collapseContainer(self){
         self.mainDiv.replaceChild(self.collapsed, self.expandedContainer)
         self.mainDiv.classList.remove("expandAnimate")
@@ -294,6 +308,8 @@ log('Entered containy.js');
     
     class cardsGenerator{
         constructor(selector, themeColor, containerColor){
+
+            // Initializinf attributes to keep track of the structure.
             this.mainDiv = document.getElementById(selector);
             this.mainDiv.className = 'containerMainDiv'
 
@@ -315,20 +331,23 @@ log('Entered containy.js');
             if(containerColor === undefined){
                 this.containerColor = 'dimgrey'
             }
-
         }
 
+        // Add Card to the container
         addCard(id, imgUrl, name, title, description){
             const cardObj = new card(id,this.themeColor)
             cardObj.makeCard(imgUrl,name, title, description)
             this.expanded.appendChild(cardObj.div)
             this.cards.push(cardObj)
         }
+
+        // Add link to a spcific card.
         addLink(id, linkUrl, linkText){
             const card = this.getRequestedCard(id)
             card.addLink(linkUrl, linkText)
         }
 
+        // Turn on the Collapse Feature for eholr container.
         turnOnCollapse(name){
             if(!this.collapse){
                 _setupCollapsedContainer(this, name);
@@ -339,32 +358,38 @@ log('Entered containy.js');
 
         }
 
+        // Changes the Container Background
         changeContainerBackground(newColor){
             this.containerColor = newColor
             this.mainDiv.style.backgroundColor = this.containerColor
         }
 
-
+        // Change the theme colour of specific card.
         changeThemeColorOfCard(id, newColor){
             const card = this.getRequestedCard(id)
             card.updateThemeColor(newColor)
 
         }
 
+        // Change the colour of the card that is shown on collapsing the big container.
         changeCollapsedCardColor(newColor){
             if(this.collapse){
                 this.collapsed.firstChild.style.backgroundColor = newColor
             }
         }
 
+        // Returns the requested card object
         getRequestedCard(id){
             const card = this.cards.filter((currCard) => currCard.div.id === id)
             return card[0]
         }
 
+        // Return all the card objects in this container
         getAllCards(){
             return this.cards
         }
+
+        // Delete a specific card from the container.
         removeCard(id){
             const deletedCard = this.getRequestedCard(id)
             if(deletedCard !== undefined){
@@ -373,16 +398,17 @@ log('Entered containy.js');
                 this.cards = updatedCards
             }     
         }
+
+        // Add zoom functionality to a specific card.
         addZoomAbilityToCard(id){
             const card = this.getRequestedCard(id);
             if(card !== undefined){
                 card.addZoomAbility();
             }
         }
-     
     }
 
-
+    // Attach only the cards generator object (Container Object), rest everything is private.
     global.cardsGenerator = global.cardsGenerator || cardsGenerator
 })(window, window.document);
 

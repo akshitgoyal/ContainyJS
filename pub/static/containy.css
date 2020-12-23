@@ -1,16 +1,10 @@
 .containerMainDiv {
 	height: fit-content;
 	width: fit-content;
-	/* display: flex;
-	justify-content: center;
-	flex-wrap: wrap; */
-	/* overflow: hidden; */
 	border-radius: 20px;
 	background-color: dimgrey;
 	transition: width 1s, height 1s;
 }
-
-
 
 
 .expandedCards {
@@ -19,7 +13,7 @@
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	/* overflow: hidden; */
+
 }
 .collapseButton {
 	height: 100%;
@@ -73,9 +67,7 @@
 
 
 .zoom {
-
 	transform: translate3D(0,-1px,0) scale(1.2); 
-
 	box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
 	transition: all .4s ease;
 	cursor: pointer;
@@ -186,8 +178,6 @@
 	border-left: none;
 	border-right: none;
 	border-bottom: none;
-	/* border-bottom-color: rgb(172, 171, 171);
-	border-bottom-width: thin; */
 	border-top-color: rgb(172, 171, 171);
 	border-top-style: solid;
 	border-top-width: thin;
